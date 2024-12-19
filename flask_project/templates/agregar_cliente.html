@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Cliente</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Agregar Cliente</h1>
+        <form method="POST" action="/agregar-cliente">
+            <input type="text" name="rut" placeholder="RUT (sin puntos ni guion)" required>
+            <input type="text" name="dv" placeholder="Dígito Verificador" maxlength="1" required>
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="apellido_paterno" placeholder="Apellido Paterno" required>
+            <input type="text" name="apellido_materno" placeholder="Apellido Materno">
+            <input type="text" name="celular" placeholder="Celular" required>
+            <input type="email" name="correo" placeholder="Correo Electrónico" required>
+            <button type="submit">Guardar Cliente</button>
+            <button type="reset">Limpiar Formulario</button>
+        </form>
+        <a href="/" class="btn">Volver al Menú</a>
+    </div>
+</body>
+</html>

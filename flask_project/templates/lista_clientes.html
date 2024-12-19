@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Clientes</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>RUT</th>
+                    <th>Nombre</th>
+                    <th>Celular</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente.id }}</td>
+                    <td>{{ cliente.rut }}-{{ cliente.dv }}</td>
+                    <td>{{ cliente.nombre }} {{ cliente.apellido_paterno }} {{ cliente.apellido_materno }}</td>
+                    <td>{{ cliente.celular }}</td>
+                    <td>{{ cliente.correo }}</td>
+                    <td>
+                        <a href="/editar-cliente/{{ cliente.id }}" class="btn">Editar</a>
+                        <a href="/eliminar-cliente/{{ cliente.id }}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="btn">Volver al Menú</a>
+    </div>
+</body>
+</html>

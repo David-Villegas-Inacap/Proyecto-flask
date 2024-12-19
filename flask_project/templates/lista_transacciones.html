@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Transacciones</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Transacciones</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descripción</th>
+                    <th>Monto</th>
+                    <th>Fecha</th>
+                    <th>Categoría</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaccion in transacciones %}
+                <tr>
+                    <td>{{ transaccion.id }}</td>
+                    <td>{{ transaccion.descripcion }}</td>
+                    <td>${{ transaccion.monto }}</td>
+                    <td>{{ transaccion.fecha.strftime('%d/%m/%Y') }}</td>
+                    <td>{{ transaccion.categoria }}</td>
+                    <td>
+                        <a href="/editar-transaccion/{{ transaccion.id }}" class="btn">Editar</a>
+                        <a href="/eliminar-transaccion/{{ transaccion.id }}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="btn">Volver al Menú</a>
+    </div>
+</body>
+</html>
